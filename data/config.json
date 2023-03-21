@@ -1,0 +1,36 @@
+{
+    "model" : {
+        "backend":              "MobileNet",
+        "input_size":           224,
+        "anchors":              [0.80,1.80, 1.05,1.18, 1.06,2.72, 1.61,1.99, 2.38,1.24],
+        "max_box_per_image":    10,        
+        "labels":               ["can", "bottle", "ken", "grace", "frank", "tim", "shelly"]
+    },
+
+    "train": {
+        "train_image_folder":   "captures/",
+        "train_annot_folder":   "captures/annotations/",     
+          
+        "train_times":          8,
+        "pretrained_weights":   "",
+        "batch_size":           16,
+        "learning_rate":        10e-5,
+        "nb_epochs":            1,
+        "warmup_epochs":        3,
+
+        "object_scale":         5.0 ,
+        "no_object_scale":      2.0,
+        "coord_scale":          2.0,
+        "class_scale":          2.0,
+
+        "saved_weights_name":   "mobilenet_warm.h5",
+        "debug":                false
+    },
+
+    "valid": {
+        "valid_image_folder":   "",
+        "valid_annot_folder":   "",
+
+        "valid_times":          1
+    }
+}

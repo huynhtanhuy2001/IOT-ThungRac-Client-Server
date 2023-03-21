@@ -1,0 +1,74 @@
+<MainView>
+    BoxLayout:
+        padding:50
+        FloatLayout:
+            Image:
+                id: cameraView
+                texture: root.image_texture
+                height: 1180
+                size_hint_y: 1
+                width: 1180
+                size_hint_x: 1
+                pos_hint: {'x': 0, 'y': 0}
+                Label:
+                    id: labelObjDet
+                    size_hint_y: None
+                    size_hint_y: None
+                    height: 100
+                    font_size:40
+                    pos: 650,300
+                    outline_color: (0,0,0)
+                    outline_width: 3
+                    text:'{{object}} DETECTED'
+            Image:
+                id: trashyView
+                source: "img/trashy.gif"
+                opacity: 1.0
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing:20
+            width: 250
+            size_hint_x: None
+            Button:
+                text: 'How to recycle?'
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'infoView'
+            Button:
+                text: "About our project!"
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'aboutView'
+            Button:
+                id: btnExit
+                text: "Quit"
+                on_press: root.quit()
+
+<InfoView>
+    BoxLayout:
+        Image:
+            source: 'img/recycling.jpg'
+        BoxLayout:
+            orientation: 'vertical'          
+            Image:
+                source: 'img/trashy.gif'
+            Button:
+                text: 'Back to Main Screen'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'mainView'
+
+<AboutView>
+    BoxLayout:
+        Image:
+            source: 'img/about.jpg'
+        BoxLayout:
+            orientation: 'vertical'          
+            Image:
+                source: 'img/trashy.gif'
+            Button:
+                text: 'Back to Main Screen'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'mainView'
